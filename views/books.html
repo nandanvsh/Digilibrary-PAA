@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/boo.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <title>PAA Book Listing</title>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="header">
+         <div class="list-item">
+            <a href="#">
+             <div class="main-content">
+                <div id="menu-button">
+                  <input type="checkbox" id="menu-checkbox" />
+                    <label for="menu-checkbox" id="menu-label">
+                    <div id="hamburger"></div>
+                    </label>
+                  </div>
+                </div>
+                <span class="desc-header">DIGLIBRARY</span>
+              </a>
+            </div>
+            <div class="illustration">
+              <img src="/static/image/bukuv.png" alt="" />
+            </div>
+          </div>
+          <div class="main">
+            <div class="list-item">
+              <a href="/dasboard">
+                <img src="/static/image/b3.png" alt="" class="icon" />
+                <span class="description">Dasboard</span>
+              </a>
+            </div>
+          </div>
+          <div class="main">
+            <div class="list-item">
+              <a href="/book">
+                <img src="/static/image/b5.png" alt="" class="icon" />
+                <span class="description">List Book</span>
+              </a>
+            </div>
+          </div>
+          <div class="main">
+            <div class="list-item">
+              <a href="/request">
+                <img src="/static/image/b1.png" alt="" class="icon" />
+                <span class="description">Request Book</span>
+              </a>
+            </div>
+          </div>
+          <!-- <div class="main">
+            <div class="list-item">
+              <a href="#">
+                <img src="/static/image/b4.png" alt="" class="icon" />
+                <span class="description">History</span>
+              </a>
+            </div>
+          </div> -->
+          <div class="profile">
+            <div class="profile-content">
+              <img src="/static/image/profile.png" alt="" class="icon" />
+            </div>
+            <a href="/profile">
+              <div class="name-job">
+                <div class="profile-name">Admin</div>
+                <div class="status">admin</div>
+              </div>
+            </a>
+            <i class="bx bx-brightness-half bx-spin bx-rotate-90"></i>
+          </div>
+        </aside>
+        <div class="navBar">
+          <div class="toggle-sidebar">
+            <div class="text"></div>
+          </div>
+          <div class="menu-bar">BOOK</div>
+          <form action="/logout" method="post">
+            <button class="btn btn-danger" style="cursor: pointer" type="submit">Logout</button>
+          </form>
+        </div>
+        <div class="containers">
+        <table>
+            <thead>
+              <tr>
+                <th>Book Title</th>
+                <th>Author</th>
+                <th>Email</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{range .Data}}
+              <tr>
+                <td>{{.Title}}</td>
+                <td>{{.Author}}</td>
+                <td>{{.Email}}</td>
+                <td>{{.Description}}</td>
+                <td><form method="post" action="/edit-book/{{.Id}}">
+                    <button  class="btn btn-warning" type="submit">Update</button>
+                  </form>
+                    <form method="post" action="/delete-book/{{.Id}}">
+                      <button class="btn btn-danger" type="submit">Delete </button>
+                    </form>
+                </td>
+              </tr>
+              {{end}}
+            </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="message">{{.Message}}</p>
+    <script src="/static/js/nav.js"></script>
+  </body>
+</html>

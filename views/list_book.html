@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List Book</title>
+    <link rel="stylesheet" href="/static/css/dasboards.css" />
+  </head>
+  <body>
+    <h1>Daftar Buku</h1>
+
+    <!-- ... kode sebelumnya ... -->
+
+    <tr>
+      <td>{{.Title}}</td>
+      <td>{{.CoverID}}</td>
+      <td>{{range .AuthorName}}{{.}}, {{end}}</td>
+      <td>{{.FirstPublishYear}}</td>
+      <td>{{range .Publisher}}{{.}}, {{end}}</td>
+      <td>
+        <a href="/" class="btn-read" style="cursor: pointer">Read</a>
+        <a href="#" class="btn-save" onclick="saveBook('{{ .Title }}')" data-title="{{ .Title }}" style="cursor: pointer">Save</a>
+      </td>
+    </tr>
+
+    <!-- ... kode selanjutnya ... -->
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>

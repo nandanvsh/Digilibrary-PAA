@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/updates.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <title>PAA Update Book Page</title>
+  </head>
+  <body>
+    <!-- <div class="container"> -->
+    <aside class="sidebar">
+      <div class="header">
+        <div class="list-item">
+          <a href="#">
+            <div class="main-content">
+              <div id="menu-button">
+                <input type="checkbox" id="menu-checkbox" />
+                <label for="menu-checkbox" id="menu-label">
+                  <div id="hamburger"></div>
+                </label>
+              </div>
+            </div>
+            <span class="desc-header">DIGLIBRARY</span>
+          </a>
+        </div>
+        <div class="illustration">
+          <img src="/static/image/bukuv.png" alt="" />
+        </div>
+      </div>
+      <div class="main">
+        <div class="list-item">
+          <a href="/dasboard">
+            <img src="/static/image/b3.png" alt="" class="icon" />
+            <span class="description">Dasboard</span>
+          </a>
+        </div>
+      </div>
+      <div class="main">
+        <div class="list-item">
+          <a href="/book">
+            <img src="/static/image/b5.png" alt="" class="icon" />
+            <span class="description">List Book</span>
+          </a>
+        </div>
+      </div>
+      <div class="main">
+        <div class="list-item">
+          <a href="/request">
+            <img src="/static/image/b1.png" alt="" class="icon" />
+            <span class="description">Request Book</span>
+          </a>
+        </div>
+      </div>
+      <!-- <div class="main">
+				  <div class="list-item">
+					<a href="#">
+					  <img src="/static/image/b4.png" alt="" class="icon" />
+					  <span class="description">History</span>
+					</a>
+				  </div>
+				</div> -->
+      <div class="profile">
+        <div class="profile-content">
+          <img src="/static/image/profile.png" alt="" class="icon" />
+        </div>
+		<a href="/profile">
+            <div class="name-job">
+              <div class="profile-name">Admin</div>
+              <div class="status">Admin</div>
+            </div>
+          </a>
+        <i class="bx bx-brightness-half bx-spin bx-rotate-90"></i>
+      </div>
+    </aside>
+    <div class="navBar">
+      <div class="toggle-sidebar">
+        <div class="text"></div>
+      </div>
+      <div class="menu-bar">Update Book</div>
+      <form action="/logout" method="post">
+        <button class="btn btn-danger" style="cursor: pointer" type="submit">Logout</button>
+      </form>
+    </div>
+    <main>
+      <div>
+        <h1>Update Book</h1>
+      </div>
+
+      <div class="request-form">
+        <div class="form-content">
+          <form method="post" action="/book/{{.ID}}">
+            <div class="form-group">
+              <label for="title">Title : </label>
+              <input type="text" id="title" name="title" value="{{.Title}}" required />
+            </div>
+            <div class="form-group">
+              <label for="author">Author : </label>
+              <input type="text" id="author" name="author" value="{{.Author}}" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email : </label>
+              <input type="email" id="email" name="email" value="{{.Email}}"required />
+            </div>
+            <div class="form-group">
+              <label for="description">Description : </label>
+              <input type="text" id="description" name="description" value="{{.Description}}" required />
+            </div>
+            <button  class="btn btn-warning" type="submit">Update Book</button>
+          </form>
+		  </div>
+        </div>
+      </div>
+    </main>
+	<script src="/static/js/nav.js"></script>
+  </body>
+</html>
